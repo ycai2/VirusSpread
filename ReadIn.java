@@ -12,22 +12,26 @@ public class ReadIn {
   static public String getContents(File aFile) {
     //...checks on aFile are elided
     StringBuilder contents = new StringBuilder();
-    
+ 
     try {
       //use buffering, reading one line at a time
       //FileReader always assumes default encoding is OK!
       BufferedReader input =  new BufferedReader(new FileReader(aFile));
       try {
         String line = null; //not declared within while loop
+
         /*
         * readLine is a bit quirky :
         * it returns the content of a line MINUS the newline.
         * it returns null only for the END of the stream.
         * it returns an empty String if two newlines appear in a row.
         */
+
+
         while (( line = input.readLine()) != null){
           contents.append(line);
           contents.append(System.getProperty("line.separator"));
+
         }
       }
       finally {
@@ -44,8 +48,8 @@ public class ReadIn {
 
   /** Simple test harness.   */
   public static void main (String... aArguments) throws IOException {
-    System.out.println("User dir is: " + System.getProperty("user.dir"));
+    System.out.println("User dir is: " + System.getProperty("user.dir") + "\n");
     File testFile = new File(System.getProperty("user.dir") + "/test");
-    System.out.println("Original file contents: " + getContents(testFile));
+    System.out.println("Original file contents: \n" + getContents(testFile));
   }
 } 
