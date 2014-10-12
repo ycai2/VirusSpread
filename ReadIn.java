@@ -3,6 +3,8 @@ import java.io.*;
 /** JDK 6 or before. */
 public class ReadIn {
 
+  protected int n = 0;
+  protected int m = 0;
   /**
   * Fetch the entire contents of a text file, and return it in a String.
   * This style of implementation does not throw Exceptions to the caller.
@@ -30,7 +32,8 @@ public class ReadIn {
 
         while (( line = input.readLine()) != null){
           contents.append(line);
-          contents.append(System.getProperty("line.separator"));
+          //contents.append(System.getProperty("line.separator"));
+          contents.append("\n");
 
         }
       }
